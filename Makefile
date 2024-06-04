@@ -9,6 +9,10 @@ rust-version:
 format:
 	cargo fmt --quiet
 
+format-check:
+	@rustup component add rustfmt 2> /dev/null
+	@cargo fmt --all -- --check
+
 lint:
 	cargo clippy --quiet
 
@@ -20,5 +24,9 @@ run:
 
 release:
 	cargo build --release
+
+build-release:
+	@echo "Building release version for platfomr $(shell uname -s)"
+	cargo build --release 
 
 all: format lint test run
