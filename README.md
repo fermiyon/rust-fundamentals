@@ -1,6 +1,6 @@
-# rust-new-project-template
-A good starting point for a new Rust project
+# Rust Fundamentals
+
 
 ## References
 
-* [rust-cli-template](https://github.com/kbknapp/rust-cli-template)
+https://www.coursera.org/learn/rust-fundamentals
