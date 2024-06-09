@@ -53,8 +53,16 @@ fn main() {
             Shape::Circle(circle) => circle.area(),
             Shape::Square(square) => square.area(),
         })
-        .collect::<Result<Vec<_>, _>>() // Collect the areas into a Result of a vector
+        .collect::<Result<Vec<_>, _>>() 
         .map(|areas| areas.iter().sum()); // Sum the areas if they are all valid
+    //! The collect::<Result<Vec<_>, _>>() method attempts to collect the transformed 
+    //! items into a Result containing a vector of areas. If any of the areas resulted in an error, 
+    //! the entire collection will result in an Err
+    //! 
+    //! The areas inside the map function, after collect, is a Vec<f64> only if the Result is Ok. 
+    //! To sum up the elements of this vector, we need to turn it into an iterator first, 
+    //! with the areas.iter(). The iter method borrows each element of the collection, 
+    //! allowing to use them to calculate the sum without taking ownership of the vector.
 
     match total_area {
         Ok(area) => println!("Total area: {:.2} sq. units", area),
