@@ -95,6 +95,14 @@ fn main() {
     if let Some(input) = std::env::args().nth(1) {
         if let Some(file_size) = FileSize::from_input(&input) {
             let sizes = Sizes::from_file_size(file_size);
+            // Bytes
+            println!("Bytes: {}", sizes.bytes);
+            // Kilobytes
+            println!("Kilobytes: {}", sizes.kilobytes);
+            // Megabytes
+            println!("Megabytes: {}", sizes.megabytes);
+            // Gigabytes
+            println!("Gigabytes: {}", sizes.gigabytes);
             println!("Sizes: {:?}", sizes);
         } else {
             eprintln!("Invalid input format. Usage: cargo run -- <size>");
